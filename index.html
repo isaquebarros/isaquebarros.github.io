@@ -1,180 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trabalho e Sucesso – Livro de Isaque Barros</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho e Sucesso – A Jornada</title>
+
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #f7f7f7;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #f4f6f9;
             color: #222;
-            line-height: 1.6;
         }
 
-        header {
-            background: linear-gradient(135deg, #1a4d8f, #0d2a4c);
-            color: white;
-            padding: 60px 20px;
+        /* Fundo com movimento suave */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            background: linear-gradient(135deg, #0d2a4c, #1a4d8f, #345a9c);
+            background-size: 200% 200%;
+            animation: moveBg 12s ease-in-out infinite;
+            z-index: -2;
+            filter: brightness(0.85);
+        }
+
+        @keyframes moveBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             text-align: center;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: auto;
             padding: 40px 20px;
+            color: white;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            line-height: 1.3;
+            font-weight: 700;
+            text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+        }
+
+        .hero img {
+            width: 320px;
+            max-width: 90%;
+            margin-top: 25px;
+            border-radius: 8px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+            animation: fadeInUp 1.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #ffdd33;
+            color: #222;
+            padding: 15px 35px;
+            margin-top: 35px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.25s;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+        }
+
+        .cta-btn:hover {
+            background: #ffe877;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.35);
+        }
+
+        /* Conteúdo abaixo do Hero */
+        .section {
+            max-width: 950px;
+            margin: 80px auto;
             background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+            animation: fadeIn 1.2s ease;
         }
 
         h2 {
             color: #0d2a4c;
-            margin-top: 50px;
             margin-bottom: 15px;
+            font-size: 1.8rem;
         }
 
-        .highlight {
-            background: #eef5ff;
-            padding: 15px 20px;
-            border-left: 4px solid #1a4d8f;
-            margin: 20px 0;
-        }
-
-        .cta {
-            text-align: center;
-            margin: 40px 0;
-        }
-
-        .cta a {
-            background: #1a4d8f;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 6px;
-            display: inline-block;
-            transition: 0.2s ease-in-out;
-        }
-
-        .cta a:hover {
-            background: #0b335c;
-        }
-
-        footer {
-            background: #0d2a4c;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        .quote {
-            font-style: italic;
-            color: #333;
-            padding: 15px 20px;
-            border-left: 4px solid #666;
-            background: #fafafa;
-            margin: 25px 0;
+        p {
+            margin-bottom: 20px;
+            line-height: 1.65;
+            font-size: 1.1rem;
         }
 
         ul {
-            padding-left: 22px;
+            margin-top: 10px;
+            padding-left: 20px;
+            font-size: 1.1rem;
         }
 
-        .author-box {
-            background: #f0f4ff;
-            padding: 20px;
-            border-left: 4px solid #1a4d8f;
-            margin-top: 30px;
+        .quote {
+            background: #eef5ff;
+            padding: 18px;
+            border-left: 5px solid #1a4d8f;
+            font-style: italic;
+            margin: 25px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #0d2a4c;
+            color: white;
+            margin-top: 60px;
         }
     </style>
 </head>
 
 <body>
 
-<!-- Header -->
-<header>
-    <h1>Trabalho e Sucesso</h1>
-    <p>
-        Um caminho real para propósito, excelência e legado — por <strong>Isaque Barros</strong>.
-    </p>
-</header>
+<div class="animated-bg"></div>
 
-<!-- Main Container -->
-<section class="container">
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Há uma jornada para o verdadeiro sucesso profissional. Caminhe por ela desenvolvendo práticas guiadas por propósito e sentido.</h1>
 
+    <!-- CAPA DO LIVRO (você pode substituir o link pela imagem que subir no GitHub) -->
+    <img src="https://raw.githubusercontent.com/isaquebarros/isaquebarros.github.io/main/capa.jpg" alt="Capa do Livro Trabalho e Sucesso">
+
+    <a href="#" class="cta-btn">Quero iniciar minha jornada</a>
+</section>
+
+
+<!-- SEÇÃO 1 -->
+<section class="section">
     <h2>A mensagem central do livro</h2>
     <p>
-        Em um mundo que exige produtividade sem descanso e sucesso sem significado,
-        <strong>Trabalho e Sucesso</strong> revela um caminho mais profundo —
-        aquele em que o trabalho deixa de ser apenas meio de sobrevivência e se torna
-        instrumento de propósito, caráter e legado.
+        <strong>Trabalho e Sucesso</strong> é um convite para enxergar o trabalho não como peso,
+        mas como propósito. Em um mundo que exige produtividade sem descanso e sucesso sem significado,
+        este livro apresenta um caminho mais profundo: transformar o trabalho em chamado, caráter e legado.
     </p>
+</section>
 
-    <div class="highlight">
-        Este livro une sabedoria bíblica, experiência profissional e reflexões profundas sobre
-        trabalho, identidade e propósito — conduzindo você por uma jornada de dentro para fora.
-    </div>
-
-    <h2>Para quem este livro foi escrito</h2>
+<!-- SEÇÃO 2 -->
+<section class="section">
+    <h2>Uma jornada para quem deseja mais</h2>
     <ul>
-        <li>Líderes e gestores que desejam unir resultado, caráter e liderança saudável.</li>
-        <li>Jovens em início de carreira que querem construir um futuro sólido e significativo.</li>
-        <li>Cristãos que buscam alinhar fé e profissão.</li>
-        <li>Profissionais frustrados que sentem que “falta algo” no trabalho.</li>
+        <li>Líderes e gestores buscando unir resultado e propósito.</li>
+        <li>Jovens no início da carreira que querem construir algo sólido.</li>
+        <li>Cristãos que desejam alinhar fé e profissão.</li>
+        <li>Profissionais que sentem que falta direção no trabalho.</li>
     </ul>
+</section>
 
-    <h2>O que você vai aprender</h2>
-    <ul>
-        <li>Enxergar o trabalho como chamado — não apenas obrigação.</li>
-        <li>Viver o sucesso à luz do propósito, e não das aparências.</li>
-        <li>Desenvolver excelência profissional sem perder saúde emocional e espiritual.</li>
-        <li>Transformar rotina em legado e profissão em direção.</li>
-        <li>Crescer como pessoa, líder e profissional de forma equilibrada e verdadeira.</li>
-    </ul>
-
-    <h2>Um trecho do livro</h2>
+<!-- SEÇÃO 3 -->
+<section class="section">
+    <h2>Trecho do livro</h2>
     <div class="quote">
-        “O sucesso verdadeiro não é medido por aplausos, mas pela paz de quem cumpriu o propósito
-        para o qual foi chamado.”
+        “O sucesso verdadeiro não é medido por aplausos, mas pela paz de quem cumpriu o propósito para o qual foi chamado.”
     </div>
-
-    <h2>Por que este livro é diferente</h2>
-    <p>
-        <strong>Trabalho e Sucesso</strong> não é um livro motivacional comum, nem uma coletânea de frases feitas.
-        É um chamado à maturidade, ao equilíbrio e ao crescimento fundamentado em princípios eternos.
-        É um guia prático e profundo para quem deseja alinhar fé, carreira e propósito.
-    </p>
-
-    <h2>Sobre o autor</h2>
-    <div class="author-box">
-        <p>
-            <strong>Isaque Barros</strong> é profissional com mais de 20 anos de experiência em liderança,
-            indústria, gestão de pessoas e desenvolvimento humano. Como cristão e gestor, sua visão
-            une sabedoria prática e espiritual, oferecendo um caminho sólido para quem deseja viver
-            com propósito e excelência.
-        </p>
-    </div>
-
-    <div class="cta">
-        <a href="#" target="_blank">
-            Comprar o livro
-        </a>
-    </div>
-
 </section>
 
 <footer>
