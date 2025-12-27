@@ -1,196 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalho e Sucesso – A Jornada</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trabalho e Sucesso | Isaque Barros</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: #1e293b;
+      background-color: #f8fafc;
+      line-height: 1.6;
+    }
 
-        body {
-            font-family: "Segoe UI", sans-serif;
-            background: #f4f6f9;
-            color: #222;
-        }
+    header {
+      background: linear-gradient(180deg, #0f172a, #1e293b);
+      color: #fff;
+      padding: 80px 20px;
+    }
 
-        /* Fundo com movimento suave */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 120%;
-            height: 120%;
-            background: linear-gradient(135deg, #0d2a4c, #1a4d8f, #345a9c);
-            background-size: 200% 200%;
-            animation: moveBg 12s ease-in-out infinite;
-            z-index: -2;
-            filter: brightness(0.85);
-        }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
 
-        @keyframes moveBg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-            animation: fadeIn 1.5s ease-out;
-        }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .hero h2 {
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: #cbd5f5;
+      margin-bottom: 30px;
+    }
 
-        .hero h1 {
-            font-size: 2.8rem;
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            line-height: 1.3;
-            font-weight: 700;
-            text-shadow: 0 3px 15px rgba(0,0,0,0.4);
-        }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background-color: #eab308;
+      color: #1e293b;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
 
-        .hero img {
-            width: 320px;
-            max-width: 90%;
-            margin-top: 25px;
-            border-radius: 8px;
-            box-shadow: 0 10px 35px rgba(0,0,0,0.35);
-            animation: fadeInUp 1.5s ease;
-        }
+    .btn:hover {
+      background-color: #facc15;
+    }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+	.hero img {
+	  width: 100%;
+	  max-width: 320px;   /* ↓ reduz bastante a altura do header */
+	  height: auto;       /* mantém proporção */
+	  border-radius: 10px;
+	  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+	}
 
-        .cta-btn {
-            display: inline-block;
-            background: #ffdd33;
-            color: #222;
-            padding: 15px 35px;
-            margin-top: 35px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: 0.25s;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-        }
+    section {
+      padding: 90px 20px;
+    }
 
-        .cta-btn:hover {
-            background: #ffe877;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.35);
-        }
+    section h3 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
 
-        /* Conteúdo abaixo do Hero */
-        .section {
-            max-width: 950px;
-            margin: 80px auto;
-            background: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
-            animation: fadeIn 1.2s ease;
-        }
+    .center {
+      text-align: center;
+    }
 
-        h2 {
-            color: #0d2a4c;
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
+    .manifesto {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.15rem;
+      color: #334155;
+    }
 
-        p {
-            margin-bottom: 20px;
-            line-height: 1.65;
-            font-size: 1.1rem;
-        }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
 
-        ul {
-            margin-top: 10px;
-            padding-left: 20px;
-            font-size: 1.1rem;
-        }
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
 
-        .quote {
-            background: #eef5ff;
-            padding: 18px;
-            border-left: 5px solid #1a4d8f;
-            font-style: italic;
-            margin: 25px 0;
-        }
+    .author {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 50px;
+      align-items: center;
+    }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            background: #0d2a4c;
-            color: white;
-            margin-top: 60px;
-        }
-    </style>
+    .author img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .quote {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 100px 20px;
+      font-size: 1.8rem;
+      font-style: italic;
+    }
+
+    .stores a {
+      display: inline-block;
+      margin: 10px 15px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    footer {
+      background: #020617;
+      color: #94a3b8;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .author {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+	  
+	  .hero img {
+		max-width: 240px;
+		margin: 0 auto;
+	  }	  
+    }
+
+	.store-grid {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	  gap: 40px;
+	  margin-top: 30px;
+	}
+
+	.store-card {
+	  background: #ffffff;
+	  padding: 30px 25px;
+	  border-radius: 10px;
+	  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+	  text-align: center;
+	}
+
+	.store-logo {
+	  max-width: 160px;
+	  margin-bottom: 20px;
+	  opacity: 0.9;
+	}
+
+	.store-card p {
+	  margin-bottom: 20px;
+	  color: #334155;
+	}
+
+	
+  </style>
 </head>
 
 <body>
 
-<div class="animated-bg"></div>
-
-<!-- HERO SECTION -->
-<section class="hero">
-    <h1>Há uma jornada para o verdadeiro sucesso profissional. Caminhe por ela desenvolvendo práticas guiadas por propósito e sentido.</h1>
-
-    <!-- CAPA DO LIVRO (você pode substituir o link pela imagem que subir no GitHub) -->
-   <center> <img src="capasite.jpg" alt="Capa do Livro Trabalho e Sucesso v1"></center>
-
-    <a href="#" class="cta-btn">Quero iniciar minha jornada</a>
-</section>
-
-
-<!-- SEÇÃO 1 -->
-<section class="section">
-    <h2>A mensagem central do livro</h2>
-    <p>
-        <strong>Trabalho e Sucesso</strong> é um convite para enxergar o trabalho não como peso,
-        mas como propósito. Em um mundo que exige produtividade sem descanso e sucesso sem significado,
-        este livro apresenta um caminho mais profundo: transformar o trabalho em chamado, caráter e legado.
-    </p>
-</section>
-
-<!-- SEÇÃO 2 -->
-<section class="section">
-    <h2>Uma jornada para quem deseja mais</h2>
-    <ul>
-        <li>Líderes e gestores buscando unir resultado e propósito.</li>
-        <li>Jovens no início da carreira que querem construir algo sólido.</li>
-        <li>Cristãos que desejam alinhar fé e profissão.</li>
-        <li>Profissionais que sentem que falta direção no trabalho.</li>
-    </ul>
-</section>
-
-<!-- SEÇÃO 3 -->
-<section class="section">
-    <h2>Trecho do livro</h2>
-    <div class="quote">
-        “O sucesso verdadeiro não é medido por aplausos, mas pela paz de quem cumpriu o propósito para o qual foi chamado.”
+<header>
+  <div class="container hero">
+    <div>
+      <h1>Trabalho e Sucesso</h1>
+      <h2>Um guia indispensável para conquistar o sucesso com propósito no mundo real</h2>
+      <a href="#comprar" class="btn">Conheça o livro</a>
     </div>
+
+    <!-- IMAGEM DA CAPA -->
+    <img src="trabalho_e_sucesso_capa.png" alt="Capa do livro Trabalho e Sucesso">
+  </div>
+</header>
+
+<section>
+  <div class="container center manifesto">
+    <h3>Por que este livro existe?</h3>
+    <p>
+      Vivemos em um mundo que valoriza resultados imediatos, produtividade sem descanso
+      e sucesso sem significado. <strong>Trabalho e Sucesso</strong> nasce como um convite
+      a um caminho mais profundo — onde o trabalho deixa de ser apenas meio de sobrevivência
+      e se torna instrumento de propósito, caráter e legado.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h3 class="center">Este livro é para você que:</h3>
+
+    <div class="grid-3">
+      <div class="card">
+        <strong>✔</strong> Deseja crescer profissionalmente sem perder seus valores
+      </div>
+      <div class="card">
+        <strong>✔</strong> Busca equilíbrio entre carreira, propósito e vida pessoal
+      </div>
+      <div class="card">
+        <strong>✔</strong> Quer transformar sua profissão em chamado, não apenas ocupação
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h3 class="center">O que você vai encontrar</h3>
+
+    <div class="grid-3">
+      <div class="card">Reflexões profundas sobre trabalho e significado</div>
+      <div class="card">Aplicações práticas para liderança e carreira</div>
+      <div class="card">Princípios sólidos fundamentados na Palavra de Deus</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container author">
+    <!-- IMAGEM DO AUTOR -->
+    <img src="autor_isaque_barros.png" alt="Isaque Barros">
+
+    <div>
+      <h3>Sobre o autor</h3>
+      <p>
+        Isaque Barros é Diretor de Operações na área industrial, com atuação em ambientes
+        de alta complexidade, liderando operações e áreas estratégicas em empresas nacionais
+        e internacionais. Sua trajetória une gestão, tecnologia e desenvolvimento humano,
+        sempre com uma visão prática, sistêmica e orientada a propósito.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="comprar">
+  <div class="container center">
+    <h3>Onde comprar</h3>
+
+    <p style="max-width: 700px; margin: 0 auto 40px;">
+      Para oferecer a melhor experiência de compra, o livro está disponível em plataformas
+      diferentes conforme a sua localização:
+    </p>
+
+    <div class="store-grid">
+
+      <!-- UICLAP -->
+      <div class="store-card">
+        <img src="logo-site-uiclap.webp" alt="UICLAP" class="store-logo">
+        <p>
+          <strong>Leitores no Brasil</strong><br>
+          Impressão e envio nacionais
+        </p>
+        <a href="https://loja.uiclap.com/titulo/ua134886/" target="_blank" class="btn">
+          Comprar pela UICLAP
+        </a>
+      </div>
+
+      <!-- AMAZON -->
+      <div class="store-card">
+        <img src="amazon.png" alt="Amazon" class="store-logo">
+        <p>
+          <strong>Leitores fora do Brasil</strong><br>
+          Distribuição internacional
+        </p>
+        <a href="https://www.amazon.com.br/Trabalho-Sucesso-indispens%C3%A1vel-conquistar-Portuguese/dp/6501819377" target="_blank" class="btn">
+          Comprar pela Amazon
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="quote center">
+  “O sucesso verdadeiro não é medido por aplausos, mas pela paz de quem cumpriu o propósito
+  para o qual foi chamado.”
 </section>
 
 <footer>
-    © 2025 – Trabalho e Sucesso · Isaque Barros
+  © 2025 – Isaque Barros · Todos os direitos reservados
 </footer>
 
 </body>
